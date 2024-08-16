@@ -1,0 +1,30 @@
+name: Invitation to the GitHub Community Organization
+description: I would like to be part of the awesome LPU Org community.
+title: "Please invite me to LPU Org"
+labels: [invite me to LPU Org]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Enter your name here
+    validations:
+      required: true
+  - type: input
+    id: registrationNumber
+    attributes:
+      label: Registration Number
+      placeholder: Enter your registration number here
+    validations:
+      required: true
+  - type: textarea
+    id: additionalContext
+    attributes:
+      label: Additional Context
+      description: How did you learn about LPU Org? What resources have you found useful so far?
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        Feel free to explore other repositories in the LPU Org [here](https://github.com/LPU-Org/).
