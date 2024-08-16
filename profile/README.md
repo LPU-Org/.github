@@ -1,6 +1,7 @@
 <img src="https://github.com/user-attachments/assets/64b05fa1-d9c2-4983-99b4-e1508ec01dcb" />
 
 
+
 # Welcome to **LPU Org** 🌟
 
 ### Your One-Stop Solution for All Academic Resources at Lovely Professional University
@@ -15,12 +16,13 @@
 - 🌐 **Useful Links**: A curated list of websites and tools to aid in your studies, assignments, and projects.
 - 📝 **Task Completion Guides**: Resources to help you stay on track with your coursework, assignments, and projects.
 - 🔍 **Exam Preparation**: Material and practice resources for exams and quizzes.
-- 📂 **And everything thats needed to you!**
+- 📂 **And everything that's needed for you!**
+
 ---
 
 ### 📖 Purpose
 
-LPU Org serves as a **one place solution** for students, ensuring that you no longer need to search across various platforms for the materials you need. Whether you’re preparing for an upcoming exam, need help with an assignment, or simply want to enrich your knowledge, **LPU Org** has got you covered!
+LPU Org serves as a **one-place solution** for students, ensuring that you no longer need to search across various platforms for the materials you need. Whether you’re preparing for an upcoming exam, need help with an assignment, or simply want to enrich your knowledge, **LPU Org** has got you covered!
 
 ---
 
@@ -30,7 +32,7 @@ LPU Org serves as a **one place solution** for students, ensuring that you no lo
 - **Study Resources**: Dive into well-organized folders with notes, summaries, and reference books.
 - **Web Links for Preparation**: Helpful websites, online tools, and tutorials for everything from programming to engineering and business subjects.
 - **Project Resources**: Get the guidance you need to complete your academic projects efficiently.
-  
+
 ---
 
 ### 🚀 Getting Started
@@ -52,12 +54,24 @@ To contribute, simply fork the repository, make your additions, and open a pull 
 
 ---
 
+### 🏅 Join the LPU Org Community
+
+To join **LPU Org**, raise an issue using the link [**Join LPU Org**](https://github.com/LPU-Org/.github/issues/new?assignees=&labels=invite+me+to+LPU+Org&projects=&template=invitation.yml&title=Please+invite+me+to+LPU+Org)
+
+Once you’ve raised the issue, you’ll receive an invitation message to join the organization. After accepting the invitation, don't forget to **make your membership `Public`** so it appears on your GitHub profile for everyone else to see. You can do this by finding your name in the [organization's member list](https://github.com/orgs/LPU-Org/people) and changing the dropdown to public.
+
+---
+
 ### 📫 Contact
 
 Have any questions or want to get more involved? Reach out to us through the **Issues** tab.
 
 ---
 
+Here’s the updated **Join and Follow the LPU Org Community** part:
+
+---
+
 ### 🎓 Join and Follow the LPU Org Community
 
-Become a part of the **LPU Org** today and let’s make studying easier, together!
+You must have already joined the organization if you've come this far! Now it's time to **follow us** and spread the word among your friends and batchmates. Let’s grow the community together and make studying easier for everyone!
