@@ -17,11 +17,11 @@ body:
       placeholder: Enter your registration number here
     validations:
       required: true
-  - type: textarea
-    id: additionalContext
+  - type: input
+    id: batch
     attributes:
-      label: Additional Context
-      description: How did you learn about LPU Org? What resources have you found useful so far?
+      label: Batch
+      placeholder: Enter your Batch year (Example 2022)
     validations:
       required: true
   - type: markdown
