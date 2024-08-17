@@ -22,7 +22,6 @@ body:
         - 2022
         - 2023
         - 2024
-      default: 3
     validations:
       required: true
   - type: input
