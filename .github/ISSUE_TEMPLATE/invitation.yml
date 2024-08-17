@@ -10,18 +10,26 @@ body:
       placeholder: Enter your name here
     validations:
       required: true
+  - type: dropdown
+    id: batchYear
+    attributes:
+      label: Batch Year
+      description: Select your batch year (Valid range: 2019-2025)
+      options:
+        - 2019
+        - 2020
+        - 2021
+        - 2022
+        - 2023
+        - 2024
+        - 2025
+    validations:
+      required: true
   - type: input
     id: registrationNumber
     attributes:
       label: Registration Number
-      placeholder: Enter your registration number here
-    validations:
-      required: true
-  - type: input
-    id: batch
-    attributes:
-      label: Batch
-      placeholder: Enter your Batch year (Example 2022)
+      placeholder: Enter your Registration Number here
     validations:
       required: true
   - type: markdown
