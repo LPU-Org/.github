@@ -22,6 +22,9 @@ jobs:
             exit 1
           fi
 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Invite to GitHub organization
         uses: vj-abigo/invite-on-label@v1.2
         with:
