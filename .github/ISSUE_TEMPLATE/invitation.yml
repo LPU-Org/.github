@@ -14,7 +14,7 @@ body:
     id: batchYear
     attributes:
       label: Batch Year
-      description: Select your batch year (Valid range: 2019-2025)
+      description: Select your batch year (Valid range 2019-2025)
       options:
         - 2019
         - 2020
