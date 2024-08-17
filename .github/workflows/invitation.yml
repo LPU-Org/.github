@@ -8,12 +8,15 @@ jobs:
   automate_invite:
     runs-on: ubuntu-latest
     steps:
+      - name: Check GitHub CLI version
+        run: gh --version
+        
       - name: Extract batch year from issue
         id: extract_batch_year
         run: |
           # Extract the batch year from the registration number
           # Assuming the registration number starts with the batch year (e.g., 2022XXXX)
-          batch_year=$(gh issue view ${{ github.event.issue.number }} --json body --jq '.body' | grep -oE '20[1-2][0-9]')
+          batch_year=$(gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json body --jq '.body' | grep -oE '20[1-2][0-9]')
           if [[ "$batch_year" -ge 2018 && "$batch_year" -le 2025 ]]; then
             echo "Batch year is valid: $batch_year"
             echo "::set-output name=batch_year::$batch_year"
@@ -41,7 +44,7 @@ jobs:
           team_name="Batch-${{ steps.extract_batch_year.outputs.batch_year }}"
           
           # Use the GitHub API to add the user to the team
-          user_login=$(gh issue view ${{ github.event.issue.number }} --json author --jq '.author.login')
+          user_login=$(gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json author --jq '.author.login')
           gh api orgs/LPU-Org/teams/$team_name/memberships/$user_login --method PUT --input '{"role":"member"}' --header "authorization: token ${{ secrets.GITHUB_TOKEN }}"
           
         env:
