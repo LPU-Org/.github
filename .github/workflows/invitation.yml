@@ -8,12 +8,38 @@ jobs:
   automate_invite:
     runs-on: ubuntu-latest
     steps:
-      - name: Invite on label
+      - name: Extract batch year from issue
+        id: extract_batch_year
+        run: |
+          # Extract the batch year from the registration number
+          # Assuming the registration number starts with the batch year (e.g., 2022XXXX)
+          batch_year=$(gh issue view ${{ github.event.issue.number }} --json body --jq '.body' | grep -oE '20[1-2][0-9]')
+          if [[ "$batch_year" -ge 2018 && "$batch_year" -le 2025 ]]; then
+            echo "Batch year is valid: $batch_year"
+            echo "::set-output name=batch_year::$batch_year"
+          else
+            echo "Invalid batch year: $batch_year"
+            exit 1
+          fi
+
+      - name: Invite to GitHub organization
         uses: vj-abigo/invite-on-label@v1.2
         with:
           organization: LPU-Org
           label: invite me to LPU Org
-          repo-token: ${{ secrets.PROFILE_STATS_TOKEN }}
-          comment: "<b>Invitation sent to join the GitHub Organisation. Welcome to the community 🎉</b><br><br>Don't forget after accepting to make it public so it appears on your GitHub profile for everyone else to see. You can do this by finding your name in the GitHub organisation list and change the dropdown to public https://github.com/orgs/LPU-Org/people<br>"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          comment: "<b>Invitation sent to join the GitHub Organization. Welcome to the community 🎉</b><br><br>Don't forget after accepting to make it public so it appears on your GitHub profile for everyone else to see. You can do this by finding your name in the GitHub organisation list and changing the dropdown to public https://github.com/orgs/LPU-Org/people<br>"
         env:
-          INVITE_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+          INVITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add user to batch team
+        run: |
+          # Map the batch year to the corresponding team
+          team_name="Batch-${{ steps.extract_batch_year.outputs.batch_year }}"
+          
+          # Use the GitHub API to add the user to the team
+          user_login=$(gh issue view ${{ github.event.issue.number }} --json author --jq '.author.login')
+          gh api orgs/LPU-Org/teams/$team_name/memberships/$user_login --method PUT --input '{"role":"member"}' --header "authorization: token ${{ secrets.GITHUB_TOKEN }}"
+          
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
