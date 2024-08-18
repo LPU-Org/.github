@@ -20,7 +20,7 @@ jobs:
           organization: LPU-Org
           label: invite me to LPU Org
           repo-token: ${{ secrets.REPO_TOKEN }}
-          comment: false
+          comment: ""
         env:
           INVITE_TOKEN: ${{ secrets.INV_TOKEN }}
 
