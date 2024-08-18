@@ -19,7 +19,7 @@ jobs:
         with:
           organization: LPU-Org
           label: invite me to LPU Org
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.REPO_TOKEN }}
           comment: false
         env:
           INVITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
