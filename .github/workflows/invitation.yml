@@ -19,10 +19,10 @@ jobs:
         with:
           organization: LPU-Org
           label: invite me to LPU Org
-          repo-token: ${{ secrets.REPO_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           comment: false
         env:
-          INVITE_TOKEN: ${{ secrets.INV_TOKEN }}
+          INVITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Post invitation comment as bot
         run: |
