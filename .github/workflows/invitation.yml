@@ -22,7 +22,7 @@ jobs:
           repo-token: ${{ secrets.REPO_TOKEN }}
           comment: false
         env:
-          INVITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INVITE_TOKEN: ${{ secrets.INV_TOKEN }}
 
       - name: Post invitation comment as bot
         run: |
