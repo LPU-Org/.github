@@ -20,7 +20,7 @@
 
 ---
 
-### 📖 Purpose
+<!-- ### 📖 Purpose
 
 LPU Org serves as a **one-place solution** for students, ensuring that you no longer need to search across various platforms for the materials you need. Whether you’re preparing for an upcoming exam, need help with an assignment, or simply want to enrich your knowledge, **LPU Org** has got you covered!
 
@@ -41,7 +41,7 @@ LPU Org serves as a **one-place solution** for students, ensuring that you no lo
 2. **Contribute**: You can contribute your own notes, presentations, and resources. We believe in a community effort to improve learning!
 3. **Stay Updated**: Watch the repository for updates on new materials and upcoming academic events.
 
----
+--- -->
 
 ### 💡 How to Contribute
 
