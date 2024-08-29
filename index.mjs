@@ -1,7 +1,8 @@
-
-require('dotenv').config()
+import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+
+dotenv.config();
 
 async function getMembers() {
   let allMembers = [];
@@ -40,9 +41,9 @@ async function updateReadme() {
   }
   membersTable += '</tr>\n</table>\n<!-- endmembers -->';
 
-  const readme = fs.readFileSync(path.resolve(__dirname, './README.md'), 'utf-8');
+  const readme = fs.readFileSync(path.resolve('./README.md'), 'utf-8');
   const newReadme = readme.replace(/<!-- members -->[\s\S]*<!-- endmembers -->/, membersTable);
-  fs.writeFileSync(path.resolve(__dirname, './README.md'), newReadme);
+  fs.writeFileSync(path.resolve('./README.md'), newReadme);
 }
 
 updateReadme();
