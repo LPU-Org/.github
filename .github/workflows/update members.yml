@@ -6,9 +6,11 @@ jobs:
   bot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: "Install node"
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
       - name: "🐱‍💻 Install NPM dependencies"
         run: npm install
       - name: " Run code"
