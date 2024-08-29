@@ -2,8 +2,6 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-dotenv.config();
-
 async function getMembers() {
   let allMembers = [];
   let page = 1;
