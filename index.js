@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
-import fs from 'fs';
-import path from 'path';
+require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 
 dotenv.config();
 
