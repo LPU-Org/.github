@@ -1,28 +1,44 @@
 name: Get organization members
+
 on:
   issues:
     types: [labeled]
+
 jobs:
   bot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: "Install node"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
         uses: actions/setup-node@v4
-      - name: "🐱‍💻 Install NPM dependencies"
+        with:
+          node-version: '16'  # Specify the Node.js version
+
+      - name: 🐱‍💻 Install NPM dependencies
         run: npm install
-      - name: " Run code"
+
+      - name: Fetch organization members
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/orgs/${{ secrets.ORGS_NAME }}/members \
+          > members.json
+
+      - name: Run code to update README
         run: node index.js
         env:
           ORGS_NAME: ${{ secrets.ORGS_NAME }}
-          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
-      - name: "✍️ Update README.md"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ✍️ Update README.md
         run: |
-          git config user.name ${{ secrets.USER_NAME }}
-          git config user.email ${{ secrets.USER_EMAIL }}
-          git add .
-          git commit -m "📈 Update member"
-      - name: "🚀 push"
+          git config user.name "${{ secrets.USER_NAME }}"
+          git config user.email "${{ secrets.USER_EMAIL }}"
+          git add README.md
+          git commit -m "📈 Update member list in README"
+        
+      - name: 🚀 Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.PROFILE_STATS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
