@@ -10,7 +10,6 @@
         "dotenv": "^16.4.5",
         "fs": "0.0.1-security",
         "path": "^0.12.7",
-        "node-fetch": "3.3.2"
-    },
-    "types": "module"
+       "node-fetch": "^2.7.0"
+    }
 }
