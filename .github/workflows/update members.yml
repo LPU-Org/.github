@@ -1,44 +1,37 @@
-name: Get organization members
+name: Update README on New Member
 
 on:
   issues:
-    types: [labeled]
+    type: [labeled]
 
 jobs:
-  bot:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Specify the Node.js version
-
-      - name: 🐱‍💻 Install NPM dependencies
-        run: npm install
+          node-version: '16'
 
       - name: Fetch organization members
+        id: fetch_members
         run: |
           curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/orgs/${{ secrets.ORGS_NAME }}/members \
+          https://api.github.com/orgs/LPU-Org/members \
           > members.json
 
-      - name: Run code to update README
-        run: node index.js
-        env:
-          ORGS_NAME: ${{ secrets.ORGS_NAME }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: ✍️ Update README.md
+      - name: Update README file
+        id: update_readme
         run: |
-          git config user.name "${{ secrets.USER_NAME }}"
-          git config user.email "${{ secrets.USER_EMAIL }}"
+          node update-readme.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git commit -m "📈 Update member list in README"
-        
-      - name: 🚀 Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git commit -m "Update README with new member"
+          git push
