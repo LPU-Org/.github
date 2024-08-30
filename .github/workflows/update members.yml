@@ -25,7 +25,7 @@ jobs:
 
       - name: 🟣 Update README file
         run: |
-          node update-readme.js
+          node index.js
 
       - name: ✅ Commit and push changes
         run: |
