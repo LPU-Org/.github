@@ -1,34 +1,33 @@
-name: Update README on New Member
+name: 🥷 Update members
 
 on:
   issues:
-    type: [labeled]
+    types: [closed]
 
 jobs:
   update-readme:
+    if: contains(github.event.issue.labels.*.name, 'invite me to LPU Org')
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: ☑️ Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: 📐 Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
 
-      - name: Fetch organization members
-        id: fetch_members
+      - name: 🦋 Fetch organization members
         run: |
           curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/orgs/LPU-Org/members \
           > members.json
 
-      - name: Update README file
-        id: update_readme
+      - name: 🟣 Update README file
         run: |
-          node index.js
+          node update-readme.js
 
-      - name: Commit and push changes
+      - name: ✅ Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
