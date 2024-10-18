@@ -8,6 +8,13 @@ LPU Org is a central hub for study resources, lecture notes, PDFs, and useful li
 <!-- members -->
 <table><tr>
 <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+<a href="https://github.com/2004shweta">
+<img src="https://avatars.githubusercontent.com/u/156895477?v=4" width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt="2004shweta"/>
+<br />
+<sub style="font-size:14px"><b>2004shweta</b></sub>
+</a>
+</td>
+<td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
 <a href="https://github.com/Amulyaraj07">
 <img src="https://avatars.githubusercontent.com/u/120666581?v=4" width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt="Amulyaraj07"/>
 <br />
